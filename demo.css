@@ -109,11 +109,6 @@ h1 .js{
   }
 }
 
-/* Paragraph */
-.one p{
-  padding:10px;
-}
-
 /* Menu */
 .menu{
   padding: 0px;
@@ -130,6 +125,7 @@ h1 .js{
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  transition: all .5s ease;
   -webkit-transform: translateZ(0);
 }
 .menu li.first a {
@@ -176,9 +172,4 @@ h1 .js{
 }
 .menu.broken-line li a{
   border-radius: 10px;
-}
-
-.one p.broken-line{
-  background:#CF421C;
-  color:#fff;
 }

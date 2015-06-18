@@ -4,11 +4,11 @@ BreakDetective.js
 
 Project Overview
 ----------------
+Small piece of js code that detects line break among inline displayed elements (including inline-block,
+ and flex with flex-direction:row),
+ add `.broken-line` class and expose number of elements in first line as `data-bdcolums` attribute. 
+Allow you to take control over elements with broken lines by css.
 
-Small piece of js code for line break detecting. Allow you to style elements with broken lines differently. 
-It updates status when resize, by adding or remove class .broken-line on container and expose number of elements in first line by data-bdcolums attribute.
-It works only on container of inline displayed elements (including inline-block, and flex with flex-direction:row).
- 
 **Version:** 0.0.1-dev  
 **Dependencies:** none (VanillaJS)  
 **Support:** Latest Mozilla Firefox, Google Chrome and IE9+. 
