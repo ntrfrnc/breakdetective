@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreakDetective.js by Rafael Pawlos</title>
+    <link href='demo.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+    <section class="header stage">
+      <div class="inner">
+        <h1><span class="break">Break</span><span class="detect">Detective</span><span class="js">.js</span></h1>
+        <p>Small piece of js code for line break detecting. Allow you to style elements with broken lines differently. 
+It updates status when resize, by adding or remove class .broken-line on container and expose number of elements in first line by data-bdcolums attribute.
+It works only on container of inline displayed elements (including inline-block, and flex with flex-direction:row). </p>
+        <div class="fluid-table">
+          <div class="row">
+            <b>Version:</b> <span>0.0.1-dev</span>          
+          </div>
+          <div class="row">
+            <b>Dependencies:</b> <span>none (VanillaJS)</span>
+          </div>
+          <div class="row">
+            <b>License:</b> <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+          </div>
+          <div class="row">
+            <b>Repository, documentation:</b> <a href="https://bitbucket.org/rxl/breakdetect">bitbucket.org/rxl/breakdetective</a>
+          </div>
+          <div class="row">
+            <b>Author:</b> <a href="http://rafaelpawlos.com">Rafael Pawlos</a>
+          </div>
+        </div>
+        <p>
+          <b>Basic usage example:</b>
+        </p>
+        <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">breakdetective</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.container&#39;</span><span style="color: #f8f8f2">);</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="examples stage">
+      <h2>Examples</h2>
+      <p>Resize browser till line break to see effect.</p>
+
+      <div class="stage one">
+        <h3>Menu</h3>
+        <ul class="menu"><li class="first leaf"><a href="#" title="" class="active">Item 1</a></li>
+          <li class="leaf"><a href="#" title="">Item 2</a></li>
+          <li class="leaf"><a href="#" title="">Item 3</a></li>
+          <li class="leaf"><a href="#" title="">Item 4</a></li>
+          <li class="leaf"><a href="#" title="">Item 5</a></li>
+          <li class="leaf"><a href="#" title="">Item 6</a></li>
+          <li class="leaf"><a href="#" title="">Item 7</a></li>
+          <li class="last leaf"><a href="#">Item 8</a></li>
+        </ul>
+      </div>
+
+    </section>
+
+    <script src="dist/breakdetective.js"></script>
+    <script>
+      breakdetective('.one .menu');
+    </script>
+
+  </body>
+</html>

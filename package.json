@@ -1,0 +1,25 @@
+{
+  "name": "breakdetective",
+  "version": "0.0.1-dev",
+  "author": "Rafael Pawlos (http://rafaelpawlos.com)",
+  "description": "Small piece of js code for line break detecting. Allow you to style elements with broken lines differently.",
+  "keywords": [
+    "line",
+    "break",
+    "detect"
+  ],
+  "homepage": "http://rafaelpawlos.com/breakdetective",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/rxl/breakdetective.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/rxl/breakdetective/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-string-replace": "^1.0.0"
+  }
+}
