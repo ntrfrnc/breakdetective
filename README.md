@@ -7,7 +7,7 @@ Project Overview
 Small piece of js code that detects line break among inline displayed elements (including inline-block,
  and flex with flex-direction:row),
  add `.broken-line` class and expose number of elements in first line as `data-bdcolums` attribute. 
-Allow you to take control over elements with broken lines by css.
+Allows you to take control over elements with broken lines by css.
 
 **Version:** 0.0.1-dev  
 **Dependencies:** none (VanillaJS)  
