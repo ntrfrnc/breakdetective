@@ -6,14 +6,12 @@ var breakdetective = (function () {
     init: function (element) {
       var self = this;
       self.element = element;
-      self.isTextContainer = self.isText(element.firstChild);
+      self.firstChild = element.firstElementChild;
 
-      self.element.className += ' breakdetective';
+      element.className += ' breakdetective';
 
-      if (!self.isTextContainer) {
-        self.children = element.childNodes;
-        var items = self.children.length;
-        self.lastChild = self.isText(self.children[items-1]) ? self.children[items-2] : self.children[items-1];
+      if (self.firstChild) {
+        self.lastChild = element.lastElementChild;
         
         self.update();
         self.addListener(window, 'resize', self.update);
@@ -31,7 +29,7 @@ var breakdetective = (function () {
     checkIfbroken: function () {
       var self = this;
 
-      self.broken = (self.lastChild.offsetTop - self.children[0].offsetTop > 0);
+      self.broken = (self.lastChild.offsetTop - self.firstChild.offsetTop > 0);
     },
     
     updateClass: function () {
@@ -51,10 +49,10 @@ var breakdetective = (function () {
 
       if (self.lastOffsetLeft !== self.lastChild.offsetLeft) {
         var counter = 0;
-        var child = self.children[0];
+        var child = self.firstChild;
 
         while (child !== null) {
-          if (child.offsetTop === self.children[0].offsetTop) {
+          if (child.offsetTop === self.firstChild.offsetTop) {
             counter++;
           } else {
             break;
@@ -77,10 +75,6 @@ var breakdetective = (function () {
     
     removeClass: function(e, c) {
       e.className = e.className.replace(new RegExp(' ?' + c ), '');
-    },
-    
-    isText:function(element){
-      return element.nodeName === "#text";
     }
   };
 

@@ -47,22 +47,41 @@ Allows you to take control over elements with broken lines by css. </p>
 
       <div class="stage one">
         <h3>Menu</h3>
-        <ul class="menu"><li class="first leaf"><a href="#" title="" class="active">Item 1</a></li>
-          <li class="leaf"><a href="#" title="">Item 2</a></li>
-          <li class="leaf"><a href="#" title="">Item 3</a></li>
-          <li class="leaf"><a href="#" title="">Item 4</a></li>
-          <li class="leaf"><a href="#" title="">Item 5</a></li>
-          <li class="leaf"><a href="#" title="">Item 6</a></li>
-          <li class="leaf"><a href="#" title="">Item 7</a></li>
-          <li class="last leaf"><a href="#">Item 8</a></li>
+        <ul class="menu">
+          <li class="leaf"><a href="#">Item 1</a></li>
+          <li class="leaf"><a href="#">Item 2</a></li>
+          <li class="leaf"><a href="#">Item 3</a></li>
+          <li class="leaf"><a href="#">Item 4</a></li>
+          <li class="leaf"><a href="#">Item 5</a></li>
+          <li class="leaf"><a href="#">Item 6</a></li>
+          <li class="leaf"><a href="#">Item 7</a></li>
+          <li class="leaf"><a href="#">Item 8</a></li>
         </ul>
+      </div>
+      
+      <div class="stage two">
+        <h3>Grid</h3>
+        <div class="grid">
+          <div class="box"><h4>Title 1</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 2</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 3</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 4</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 5</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 6</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 7</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 8</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 9</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 7</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 8</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 9</h4> <p>Some awesome text.</p></div>
+        </div>
       </div>
 
     </section>
 
     <script src="dist/breakdetective.js"></script>
     <script>
-      breakdetective('.one .menu');
+      breakdetective('.menu, .grid');
     </script>
 
   </body>

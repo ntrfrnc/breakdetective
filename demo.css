@@ -128,10 +128,10 @@ h1 .js{
   transition: all .5s ease;
   -webkit-transform: translateZ(0);
 }
-.menu li.first a {
+.menu li:first-child a {
   border-radius: 10px 0px 0px 10px;
 }
-.menu li.last a {
+.menu li:last-child a {
   border-radius: 0px 10px 10px 0px;
 }
 .menu li a::before {
@@ -173,7 +173,8 @@ h1 .js{
 .menu.broken-line li a{
   border-radius: 10px;
 }
-.menu:before{
+
+.breakdetective:before{
   content: 'not broken';
   position:absolute;
   top:0;
@@ -182,7 +183,7 @@ h1 .js{
   padding:5px 10px;
   color:#fff;
 }
-.menu:after{
+.breakdetective:after{
   content:'Columns: ' attr(data-bdcolumns);
   position:absolute;
   right:0;
@@ -191,7 +192,7 @@ h1 .js{
   color:#fff;
   padding:5px 10px;
 }
-.menu.broken-line:before{
+.breakdetective.broken-line:before{
   content:'broken';
   background:rgba(100,20,10,0.7);
 }
