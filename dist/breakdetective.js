@@ -87,14 +87,15 @@ var breakdetective = (function () {
   return function (query) {
     var elements = document.querySelectorAll(query);
 
-    Array.prototype.forEach.call(elements, function (el, i) {
+    for(var i = 0; i < elements.length; i++) {
+      var el = elements[i];
       if (!el.breakdetective) {
         Object.create(moduleObject).init(el);
         el.breakdetective = true;
       } else {
         console.warn('Detected double initialization of breakdetective module on %o', el);
       }
-    });
+    }
 
     return elements;
   };

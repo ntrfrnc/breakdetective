@@ -173,3 +173,25 @@ h1 .js{
 .menu.broken-line li a{
   border-radius: 10px;
 }
+.menu:before{
+  content: 'not broken';
+  position:absolute;
+  top:0;
+  right:130px;
+  background:rgba(0,0,0,0.7);
+  padding:5px 10px;
+  color:#fff;
+}
+.menu:after{
+  content:'Columns: ' attr(data-bdcolumns);
+  position:absolute;
+  right:0;
+  top:0px;
+  background:rgba(0,0,0,0.7);
+  color:#fff;
+  padding:5px 10px;
+}
+.menu.broken-line:before{
+  content:'broken';
+  background:rgba(100,20,10,0.7);
+}
