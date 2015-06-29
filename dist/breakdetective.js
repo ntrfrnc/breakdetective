@@ -3,15 +3,17 @@
 var breakdetective = (function () {
 
   var moduleObject = {
-    init: function (element) {
+    init: function (container) {
       var self = this;
-      self.element = element;
-      self.firstChild = element.firstElementChild;
-
-      element.className += ' breakdetective';
+      self.container = container;
+      self.firstChild = container.firstElementChild;
+      
+      container.className += ' breakdetective';
 
       if (self.firstChild) {
-        self.lastChild = element.lastElementChild;
+        self.lastChild = container.lastElementChild;
+        self.elementsWidth = self.getElementsWidth(container.children);
+        self.minWidth = parseInt(self.getCssValue(self.firstChild, 'min-width')) || self.elementsWidth.max;
         
         self.update();
         self.addListener(window, 'resize', self.update);
@@ -23,46 +25,70 @@ var breakdetective = (function () {
       
       self.checkIfbroken();
       self.updateClass();
-      self.updateItemsNumber();
+      self.updateColumnsNumber();
     },
     
     checkIfbroken: function () {
       var self = this;
 
-      self.broken = (self.lastChild.offsetTop - self.firstChild.offsetTop > 0);
+      self.broken = self.elementsWidth.all > self.container.offsetWidth;
     },
     
     updateClass: function () {
       var self = this;
       
-      var hasClass = self.element.className.match('broken-line');
+      var hasClass = self.container.className.match('broken-line');
       if (self.broken && !hasClass) {
-        self.element.className += ' broken-line';
+        self.container.className += ' broken-line';
       }
       else if (!self.broken && hasClass){
-        self.removeClass(self.element, 'broken-line');
+        self.removeClass(self.container, 'broken-line');
       }
     },
 
-    updateItemsNumber: function () {
+    updateColumnsNumber: function () {
       var self = this;
 
-      if (self.lastOffsetLeft !== self.lastChild.offsetLeft) {
-        var counter = 0;
-        var child = self.firstChild;
-
-        while (child !== null) {
-          if (child.offsetTop === self.firstChild.offsetTop) {
-            counter++;
-          } else {
-            break;
-          }
-          child = child.nextElementSibling;
-        }
-
-        self.element.setAttribute('data-bdcolumns', counter);
-        self.lastOffsetLeft = self.lastChild.offsetLeft;
+      var columns = 0;
+      columns = Math.floor(self.container.offsetWidth / (self.minWidth + 1));
+      if (parseInt(self.container.getAttribute('data-bditems')) !== columns) {
+        self.container.setAttribute('data-bditems', columns);
       }
+    },
+    
+    getElementsWidth: function (elements){
+      var self = this;
+      
+      var widths = [];
+      for(var i = 0; i < elements.length; i++) {
+        widths[i] = self.getOuterWidth(elements[i]);
+      }
+      return {
+        max: Math.max.apply(Math, widths),
+        all: widths.reduce(function(prev, current){return prev + current;})
+      };
+    },
+    
+    getOuterWidth: function (element) {
+      var self = this;
+
+      var boxSizing = self.getCssValue(element, 'box-sizing');
+      if (boxSizing === 'border-box') {
+        var paddingLeft = parseInt(self.getCssValue(element, 'padding-left'));
+        var paddingRight = parseInt(self.getCssValue(element, 'padding-right'));
+        var borderLeft = parseInt(self.getCssValue(element, 'border-left-width'));
+        var borderRight = parseInt(self.getCssValue(element, 'border-right-width'));
+
+        return element.offsetWidth + paddingLeft + paddingRight + borderLeft + borderRight;
+      }
+      else {
+        return element.offsetWidth;
+      }
+    },
+    
+    getCssValue: function (element, prop) {
+      var style = window.getComputedStyle(element);
+      return style.getPropertyValue(prop);
     },
     
     addListener: function (element, event, listener) {

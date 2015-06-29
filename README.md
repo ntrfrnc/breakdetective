@@ -4,9 +4,8 @@ BreakDetective.js
 
 Project Overview
 ----------------
-Small piece of js code that detects line break among inline displayed elements (including inline-block,
- and flex with flex-direction:row),
- add `.broken-line` class and expose number of elements in first line as `data-bdcolums` attribute. 
+Small piece of js code that detects line break among inline displayed elements (including inline-block, and flex with flex-direction:row).  
+It adds `.broken-line` class when line is broken and calculate (by using largest element) how many elements could fit in the first line as `data-bditems` attribute.  
 Allows you to take control over elements with broken lines by css.
 
 **Version:** 0.0.1-dev  
@@ -19,10 +18,20 @@ Allows you to take control over elements with broken lines by css.
 Usage:
 ----------------
 
-Here's an example of basic usage:
+Initialize library on element:
 
-      breakdetective('.container'); 
+      breakdetective('.container');
+ 
+And style elements and its children using `.broken-line` class and `data-bditems` attribute, e.g.:
 
+      .container.broken-line .child{
+        border: 1px solid red;
+      }
+      .container[data-bditems="3"] .child{
+        width:33.33%;
+      }
+
+[See demo](http://rafaelpawlos.com/breakdetective) for real examples.
 
 License
 ----------------

@@ -16,13 +16,12 @@ a[href]:hover{
 }
 h1{
   font-family:'Open Sans', sans-serif;
-  font-size:50px;
   font-weight:700;
   text-align:center;
   margin-top:0.2em;
   margin-bottom:0.9em;
   font-size:30px;
-  font-size:10vw;
+  font-size:9vw;
   color: #fff;
 }
 h1 .break,
@@ -93,9 +92,51 @@ h1 .js{
   min-width: 200px;
   margin-left:10px;
 }
+.collapse-block{
+  position: relative;
+  margin: 15px 0 15px 0;
+}
+.collapse-switch{
+  opacity:0;
+  width:100px;
+  position:absolute;
+  margin: 0;
+  cursor:pointer;
+  z-index:2;
+  height:25px;
+}
+.collapse-switch + b{
+  cursor:default;
+}
+.collapse-switch + b:before{
+  content: '+ ';
+}
+.collapse-switch:checked + b:before{
+  content: '- ';
+}
+.collapse-switch ~ .collapse-container{
+  max-height: 0;
+  margin:0;
+  opacity:0;
+  overflow:hidden;
+  border-left: 3px solid #444;
+  -webkit-transition:all .6s ease;
+  transition:all .6s ease;
+}
+.collapse-switch:checked ~ .collapse-container{
+  max-height: 500px;
+  opacity:1;
+  padding:10px;
+}
 
 .examples{
   padding:20px;
+}
+.examples .stage{
+  margin-top: 50px;
+}
+.examples pre{
+  background:rgba(255,255,255,0.5);
 }
 
 @media (min-width:500px){
@@ -111,13 +152,20 @@ h1 .js{
 
 /* Menu */
 .menu{
+  font-size:0;
   padding: 0px;
+  text-align: center;
 }
 .menu li{
+  font-size:16px;
   display: inline-block;
+  padding:2px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all .5s ease;
 }
 .menu li a{
-  display: inline-block;
+  display: block;
   padding: 0px 15px;
   height: 40px;
   line-height: 40px;
@@ -147,13 +195,13 @@ h1 .js{
 .menu li a::after {
   content: "";
   background: #47660D none repeat scroll 0% 0%;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -100px;
-  margin-top: -100px;
+  margin-left: -110px;
+  margin-top: -110px;
   transform: scale(0);
   border-radius: 50%;
   z-index: -1;
@@ -165,32 +213,71 @@ h1 .js{
   opacity:1;
 }
 
+/* Grid */
+.grid{
+  font-size:0;
+}
+.grid .box{
+  display:inline-block;
+  box-sizing: border-box;
+  padding:10px;
+  background:rgba(255,255,255,0.8);
+  border:1px solid #ddd;
+  font-size:16px;
+  min-width: 160px;
+  transition: all .5s ease;
+}
+.grid[data-bditems="6"] .box{
+  width:16.66%;
+}
+.grid[data-bditems="5"] .box{
+  width:20%;
+}
+.grid[data-bditems="4"] .box{
+  width:25%;
+}
+.grid[data-bditems="3"] .box{
+   width:33.33%; 
+}
+.grid[data-bditems="2"] .box{
+   width:50%; 
+}
+.grid[data-bditems="1"] .box{
+   width:100%; 
+}
 
 /* Broken ones */
-.menu.broken-line{
-  text-align: center;
+.menu.broken-line li{
+  width:33.33%;
+}
+.menu[data-bditems="2"] li{
+  width:50%;
+}
+.menu[data-bditems="1"] li{
+  width:100%;
 }
 .menu.broken-line li a{
   border-radius: 10px;
 }
 
-.breakdetective:before{
-  content: 'not broken';
+/* Indicators */
+.breakdetective:before,
+.breakdetective:after{
   position:absolute;
   top:0;
-  right:130px;
-  background:rgba(0,0,0,0.7);
   padding:5px 10px;
   color:#fff;
+  font-size:16px;
+}
+.breakdetective:before{
+  content: 'not broken';
+  right:110px;
+  background:rgba(0,0,0,0.7);
 }
 .breakdetective:after{
-  content:'Columns: ' attr(data-bdcolumns);
-  position:absolute;
+  content:'BDitems: ' attr(data-bditems);
   right:0;
-  top:0px;
   background:rgba(0,0,0,0.7);
-  color:#fff;
-  padding:5px 10px;
 }
 .breakdetective.broken-line:before{
   content:'broken';

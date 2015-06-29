@@ -12,10 +12,9 @@
     <section class="header stage">
       <div class="inner">
         <h1><span class="break">Break</span><span class="detect">Detective</span><span class="js">.js</span></h1>
-        <p>Small piece of js code that detects line break among inline displayed elements (including inline-block,
- and flex with flex-direction:row),
- add `.broken-line` class and expose number of elements in first line as `data-bdcolums` attribute. 
-Allows you to take control over elements with broken lines by css. </p>
+        <p>Small piece of js code that detects line break among inline displayed elements (including inline-block, and flex with flex-direction:row).  
+          It adds `.broken-line` class when line is broken and calculate (by using largest element) how many elements could fit in the first line as `data-bditems` attribute.  
+          Allows you to take control over elements with broken lines by css. </p>
         <div class="fluid-table">
           <div class="row">
             <b>Version:</b> <span>0.0.1-dev</span>          
@@ -44,21 +43,40 @@ Allows you to take control over elements with broken lines by css. </p>
     <section class="examples stage">
       <h2>Examples</h2>
       <p>Resize browser till line break to see effect.</p>
+      <div class="collapse-block"> 
+        <input type="checkbox" class="collapse-switch"><b>Show JS for both examples</b>
+        <pre class="collapse-container">
+breakdetective('.menu, .grid');</pre>
+      </div>
 
       <div class="stage one">
         <h3>Menu</h3>
         <ul class="menu">
-          <li class="leaf"><a href="#">Item 1</a></li>
-          <li class="leaf"><a href="#">Item 2</a></li>
-          <li class="leaf"><a href="#">Item 3</a></li>
-          <li class="leaf"><a href="#">Item 4</a></li>
-          <li class="leaf"><a href="#">Item 5</a></li>
+          <li class="leaf"><a href="#">Item abcs 1</a></li>
+          <li class="leaf"><a href="#">Item ab 2</a></li>
+          <li class="leaf"><a href="#">Item abcdefg 3</a></li>
+          <li class="leaf"><a href="#">Item a 4</a></li>
+          <li class="leaf"><a href="#">Item abc 5</a></li>
           <li class="leaf"><a href="#">Item 6</a></li>
-          <li class="leaf"><a href="#">Item 7</a></li>
-          <li class="leaf"><a href="#">Item 8</a></li>
         </ul>
+        <div class="collapse-block"> 
+          <input type="checkbox" class="collapse-switch"><b>Show CSS</b>
+          <pre class="collapse-container">
+.menu.broken-line li{
+  width:33.33%;
+}
+.menu[data-bditems="2"] li{
+  width:50%;
+}
+.menu[data-bditems="1"] li{
+  width:100%;
+}
+.menu.broken-line li a{
+  border-radius: 10px;
+}</pre>
+        </div>
       </div>
-      
+
       <div class="stage two">
         <h3>Grid</h3>
         <div class="grid">
@@ -71,9 +89,28 @@ Allows you to take control over elements with broken lines by css. </p>
           <div class="box"><h4>Title 7</h4> <p>Some awesome text.</p></div>
           <div class="box"><h4>Title 8</h4> <p>Some awesome text.</p></div>
           <div class="box"><h4>Title 9</h4> <p>Some awesome text.</p></div>
-          <div class="box"><h4>Title 7</h4> <p>Some awesome text.</p></div>
-          <div class="box"><h4>Title 8</h4> <p>Some awesome text.</p></div>
-          <div class="box"><h4>Title 9</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 10</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 11</h4> <p>Some awesome text.</p></div>
+          <div class="box"><h4>Title 12</h4> <p>Some awesome text.</p></div>
+        </div>
+        <div class="collapse-block"> 
+          <input type="checkbox" class="collapse-switch"><b>Show CSS</b>
+          <pre class="collapse-container">
+.grid[data-bditems="5"] .box{
+  width:20%;
+}
+.grid[data-bditems="4"] .box{
+  width:25%;
+}
+.grid[data-bditems="3"] .box{
+   width:33.33%; 
+}
+.grid[data-bditems="2"] .box{
+   width:50%; 
+}
+.grid[data-bditems="1"] .box{
+   width:100%; 
+}</pre>
         </div>
       </div>
 
