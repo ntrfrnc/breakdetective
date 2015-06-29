@@ -8,7 +8,7 @@ Small piece of js code that detects line break among inline displayed elements (
 It adds `.broken-line` class when line is broken and calculate (by using largest element) how many elements could fit in the first line as `data-bditems` attribute.  
 Allows you to take control over elements with broken lines by css.
 
-**Version:** 0.0.1-dev  
+**Version:** 0.0.2-dev  
 **Dependencies:** none (VanillaJS)  
 **Support:** Latest Mozilla Firefox, Google Chrome and IE9+. 
 
