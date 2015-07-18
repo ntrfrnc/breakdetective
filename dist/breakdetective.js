@@ -105,7 +105,11 @@ var breakdetective = (function () {
   };
 
   return function (query) {
-    var elements = document.querySelectorAll(query);
+    if (typeof query === 'string') {
+      var elements = document.querySelectorAll(query);
+    } else {
+      var elements = query;
+    }
 
     for(var i = 0; i < elements.length; i++) {
       var el = elements[i];
