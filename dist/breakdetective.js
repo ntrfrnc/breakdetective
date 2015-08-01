@@ -31,7 +31,7 @@ var breakdetective = (function () {
     checkIfbroken: function () {
       var self = this;
 
-      self.broken = self.elementsWidth.all > self.container.offsetWidth;
+      self.broken = self.elementsWidth.all + 1 > self.container.offsetWidth;
     },
     
     updateClass: function () {
@@ -73,7 +73,7 @@ var breakdetective = (function () {
       var self = this;
 
       var boxSizing = self.getCssValue(element, 'box-sizing');
-      if (boxSizing === 'border-box') {
+      if (boxSizing !== 'border-box') {
         var paddingLeft = parseInt(self.getCssValue(element, 'padding-left'));
         var paddingRight = parseInt(self.getCssValue(element, 'padding-right'));
         var borderLeft = parseInt(self.getCssValue(element, 'border-left-width'));

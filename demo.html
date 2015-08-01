@@ -46,7 +46,9 @@
       <div class="collapse-block"> 
         <input type="checkbox" class="collapse-switch"><b>Show JS for both examples</b>
         <pre class="collapse-container">
-breakdetective('.menu, .grid');</pre>
+window.onload = function(){
+  breakdetective('.menu, .grid');
+};</pre>
       </div>
 
       <div class="stage one">
@@ -118,7 +120,9 @@ breakdetective('.menu, .grid');</pre>
 
     <script src="dist/breakdetective.js"></script>
     <script>
-      breakdetective('.menu, .grid');
+      window.onload = function(){
+        breakdetective('.menu, .grid');
+      };
     </script>
 
   </body>
