@@ -42,7 +42,7 @@ var breakdetective = (function () {
         self.container.className += ' broken-line';
       }
       else if (!self.broken && hasClass){
-        self.removeClass(self.container, 'broken-line');
+        self.rmClass(self.container, 'broken-line');
       }
     },
 
@@ -99,8 +99,9 @@ var breakdetective = (function () {
       }, false);
     },
     
-    removeClass: function(e, c) {
-      e.className = e.className.replace(new RegExp(' ?' + c ), '');
+    rmClass: function (e, c) {
+      var cPattern = new RegExp('( |^)' + c + '($| )');
+      e.className = e.className.replace(cPattern, '$2');
     }
   };
 
