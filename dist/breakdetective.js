@@ -1,4 +1,4 @@
-/*! breakdetective v0.0.2-dev [29-06-2015] | (c) Rafael Pawlos (http://rafaelpawlos.com) | MIT license */
+/*! breakdetective v0.0.2-dev [29-06-2015] | (c) Rafael Pawlos (https://pawlos.dev) | MIT license */
 
 var breakdetective = (function () {
 

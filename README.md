@@ -12,7 +12,7 @@ Allows you to take control over elements with broken lines by css.
 **Dependencies:** none (VanillaJS)  
 **Support:** Latest Mozilla Firefox, Google Chrome and IE9+. 
 
-[SEE DEMO](http://rafaelpawlos.com/breakdetective)
+[SEE DEMO](https://pawlos.dev/breakdetective)
 
 
 Usage:
@@ -31,7 +31,7 @@ And style elements and its children using `.broken-line` class and `data-bditems
         width:33.33%;
       }
 
-[See demo](http://rafaelpawlos.com/breakdetective) for real examples.
+[See demo](https://pawlos.dev/breakdetective) for real examples.
 
 License
 ----------------

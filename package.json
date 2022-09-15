@@ -1,20 +1,20 @@
 {
   "name": "breakdetective",
   "version": "0.0.2-dev",
-  "author": "Rafael Pawlos (http://rafaelpawlos.com)",
+  "author": "Rafael Pawlos (https://pawlos.dev)",
   "description": "Small piece of js code that detects line break among inline displayed elements, add class and how many elements coult fit in first line as data attribute. Allows you to take control over elements with broken lines by css.",
   "keywords": [
     "line",
     "break",
     "detect"
   ],
-  "homepage": "http://rafaelpawlos.com/breakdetective",
+  "homepage": "https://pawlos.dev/breakdetective",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/rxl/breakdetective.git"
+    "url": "https://github.com/ntrfrnc/breakdetective.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/rxl/breakdetective/issues"
+    "url": "https://github.com/ntrfrnc/breakdetective/issues"
   },
   "license": "MIT",
   "devDependencies": {
