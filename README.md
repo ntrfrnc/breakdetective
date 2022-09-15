@@ -42,4 +42,4 @@ BreakDetective.js is released under the terms of the MIT license. See LICENSE fi
 Credits
 ----------------
 
-BreakDetective.js is developed by Rafael Pawlos, http://rafaelpawlos.com
+BreakDetective.js is developed by Rafael Pawlos, [pawlos.dev](https://pawlos.dev)
